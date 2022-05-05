@@ -1,0 +1,69 @@
+@import url("./__font.scss");
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal;
+
+    p,
+    h1,
+    h2,
+    li {
+        cursor: default;
+    }
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+//Футер
+footer {
+    background: #00DC82;
+
+    .footer__list {
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer__link {
+        color: #000;
+        transition: color 200ms;
+    }
+
+    .footer__link:hover {
+        transition: color 200ms;
+        color: rgb(255, 255, 255);
+    }
+
+    .footer__text-logo {
+        font-size: 22px;
+        margin: auto 0 auto 20px;
+        color: #fff;
+    }
+
+    .footer__links {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+//Основная часть
+.translate {
+    .block-translate-child {
+        width: 50%;
+        height: 70vh;
+    }
+
+    textarea {
+        outline: none;
+        resize: none;
+        width: 100%;
+        height: 100%;
+    }
+}
