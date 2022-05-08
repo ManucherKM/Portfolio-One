@@ -51,6 +51,15 @@ footer {
         display: flex;
         flex-direction: column;
     }
+
+    .dt {
+        font-size: 23px;
+        font-weight: 500;
+    }
+
+    .text-right {
+        text-align: right;
+    }
 }
 
 //Меню
@@ -65,6 +74,14 @@ nav {
     .nav__link:hover {
         transition: color 200ms !important;
         color: rgb(255, 255, 255) !important;
+    }
+
+    .navbar-collapse {
+        flex-grow: 0 !important;
+    }
+
+    .navbar-toggler {
+        border: none !important;
     }
 }
 
@@ -83,13 +100,68 @@ nav {
         height: 100%;
         border: 1px solid grey;
         font-size: 16px;
+        border-radius: 0.3rem;
+        padding: 15px 10px;
     }
 
     .language-text {
         margin: auto 20px auto 0;
     }
 
+    .mr-20 {
+        margin-right: 20px;
+    }
+
     .block-translate-child:nth-child(1) {
         width: 45%;
+    }
+
+    .translate-text {
+        text-align: justify;
+    }
+}
+
+@media (max-width: 750px) {
+    .footer__item {
+        flex-direction: column;
+        text-align: center !important;
+    }
+
+    .mb-phone {
+        margin-bottom: 20px !important;
+    }
+
+    .footer__contact {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 455px) {
+    .mr-20 {
+        margin-right: 0px !important;
+    }
+
+    .block-language {
+        flex-direction: column !important;
+    }
+
+    .text-w {
+        width: 50px;
+    }
+
+    .mt-phone {
+        margin-top: 15px;
+    }
+
+    .block-translate {
+        flex-direction: column;
+    }
+
+    .block-translate-child {
+        width: 100% !important;
+    }
+
+    .block-translate-child:nth-child(2) {
+        margin-top: 20px;
     }
 }

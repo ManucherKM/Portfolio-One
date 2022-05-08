@@ -1,32 +1,36 @@
 <template>
   <div class="translate">
-    <div class="block-language d-flex justify-content-between">
-      <div class="block-language__text d-flex">
-        <p class="language-text">Из</p>
+    <form class="block-language d-flex justify-content-center">
+      <div class="block-language__text d-flex mr-20">
+        <p class="language-text">From</p>
         <TheOption @newLanguageCheked="newLanguageOneUpdate" />
       </div>
-      <div class="block-language__text d-flex">
-        <p class="language-text">В</p>
+      <div class="block-language__text d-flex mr-20 mt-phone">
+        <p class="language-text text-w">To</p>
         <TheOption @newLanguageCheked="newLanguageTwoUpdate" />
       </div>
-    </div>
+      <button type="button" class="btn btn-outline-success mt-phone" @click="addText">
+        Run
+      </button>
+    </form>
     <div class="block-translate d-flex justify-content-between mt-2">
       <div class="block-translate-child">
         <TheAreaTranslate @create="translate" />
       </div>
-      <div class="block-translate-child" @click="addText">
+      <div class="block-translate-child">
         <p class="translate-text">{{ readyText }}</p>
       </div>
     </div>
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
       textTranslate: "",
-      newLanguageOne: "",
-      newLanguageTwo: "",
+      newLanguageOne: "en",
+      newLanguageTwo: "ru",
       readyText: "",
     };
   },
@@ -37,24 +41,26 @@ export default {
     addText() {
       const options = {
         method: "POST",
+        url: "https://deep-translate1.p.rapidapi.com/language/translate/v2",
         headers: {
           "content-type": "application/json",
           "X-RapidAPI-Host": "deep-translate1.p.rapidapi.com",
           "X-RapidAPI-Key":
             "76d7e06148msh263d850659d08bdp1c483cjsnf26e619a4a8c",
         },
-        body: `{"q":"${this.textTranslate}","source":"${this.newLanguageOne}","target":"${this.newLanguageTwo}"}`,
+        data: `{"q":"${this.textTranslate.replace(/\s{2,}/g, " ")}","source":"${
+          this.newLanguageOne
+        }","target":"${this.newLanguageTwo}"}`,
       };
-
-      fetch(
-        "https://deep-translate1.p.rapidapi.com/language/translate/v2",
-        options
-      )
-        .then((response) => response.json())
+      axios
+        .request(options)
         .then((response) => {
-          this.readyText = response.data.translations.translatedText;
+          this.readyText = response.data.data.translations.translatedText;
+          console.log(response.data.data.translations.translatedText);
         })
-        .catch((err) => console.error(err));
+        .catch(function (error) {
+          console.error(error);
+        });
     },
     newLanguageOneUpdate(newwVal) {
       this.newLanguageOne = newwVal;

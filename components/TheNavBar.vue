@@ -2,12 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <img
-          src="https://getbootstrap.com/docs/5.1/assets/brand/bootstrap-logo.svg"
-          alt=""
-          width="30"
-          height="24"
-        />
+        <img src="/IMG/Logo.png" style="width: 4rem; height: auto;" alt="Logo" />
       </a>
       <button
         class="navbar-toggler"

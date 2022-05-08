@@ -1,20 +1,20 @@
 <template>
-  <textarea v-model="areaOneText" @input="run" cols="30" rows="10"></textarea>
+  <textarea placeholder="Enter text" v-model="areaOneText" @input="run" cols="30" rows="10"></textarea>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      areaOneText: ""
-    }
+      areaOneText: "",
+    };
   },
   methods: {
     run() {
-      this.$emit("create", this.areaOneText)
-    }
-  }
-}
+      this.$emit("create", this.areaOneText);
+    },
+  },
+};
 </script>
 
 <style>
