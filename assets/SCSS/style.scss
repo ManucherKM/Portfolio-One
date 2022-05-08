@@ -53,8 +53,24 @@ footer {
     }
 }
 
+//Меню
+nav {
+    background: #00dc82 !important;
+
+    .nav__link {
+        color: #000 !important;
+        transition: color 200ms !important;
+    }
+
+    .nav__link:hover {
+        transition: color 200ms !important;
+        color: rgb(255, 255, 255) !important;
+    }
+}
+
 //Основная часть
 .translate {
+
     .block-translate-child {
         width: 50%;
         height: 70vh;
@@ -67,5 +83,13 @@ footer {
         height: 100%;
         border: 1px solid grey;
         font-size: 16px;
+    }
+
+    .language-text {
+        margin: auto 20px auto 0;
+    }
+
+    .block-translate-child:nth-child(1) {
+        width: 45%;
     }
 }
